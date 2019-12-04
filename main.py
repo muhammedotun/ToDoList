@@ -1,36 +1,61 @@
-from Student import Student
-from Teacher import Teacher
-from course import course
+from MyList import MyList
+from Task import Task
 
-class main:
-    # crate teacher and course
+class main():
+	#definations
+	deadLineRutin = 1
+	deadLineHomeWork = 7
+	rutin = MyList('rutin')
+	homeWork = MyList('home work')
+	#definations
 
-    muhammedotun = Teacher(1,"muhammed", "Ötün")
-    python101 = course("python101", muhammedotun, 3)
+	#create task and add
+	rutin.mylist.append(Task("take a shower", deadLineRutin, 8))
+	rutin.mylist.append(Task("take a coffe", deadLineRutin, 5))
+	rutin.mylist.append(Task("have breakfast", deadLineRutin, 10))
 
-    # crate teacher and course
+	homeWork.mylist.append(Task("data stracture", deadLineHomeWork, 9))
+	homeWork.mylist.append(Task("system programming", deadLineHomeWork, 10))
+	homeWork.mylist.append(Task("database management systems", deadLineHomeWork, 7))
 
-    # crate list
-    studentList = []
-    # create list
+	#create task and add
 
+	#definations functions
 
-    def addStudent(studentList, stdNumber, stdName, stdLastName):
-        studentList.append(Student(stdNumber,stdName,stdLastName))
+	def printToDoList(mylist):
+		for task in mylist.mylist:
+			print(task.getTask())
+	#definations functions
 
-    def printStudentList(studentList):
-        for student in studentList:
-            student.printStudent()
+	printToDoList(homeWork)
 
-    addStudent(studentList, 1, "emirhan", "eren")
-    addStudent(studentList, 2, "yahya furkan", "kılıçoğlu")
-    addStudent(studentList, 3, "onur", "kerim")
-    addStudent(studentList, 4, "kasım", "eren")
+"""
+	example
 
-    printStudentList(studentList)
+	#print ToDoList
+	printToDoList(rutin)
+	#print ToDoList
 
-    studentList[0].addCourse(python101)
+	#sort list
+	Task.sortByImportance(rutin.mylist)
+	#sort list
+	print()
+	print("sorted list\n")
+	#sort list
 
-    print(help(Student))
+	#print ToDoList
+	printToDoList(rutin)
+	#print ToDoList
+	print("\n")
+	#print ToDoList
+	printToDoList(homeWork)
+	#print ToDoList
+	Task.sortByImportance(homeWork.mylist)
+	print("\n")
+	printToDoList(homeWork)
+
+	example
+
+"""
 if __name__ == '__main__':
-    main()
+	main()
